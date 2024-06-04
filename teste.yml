@@ -1,0 +1,9 @@
+- name: Executar ping na máquina remota
+  hosts: servidor_remoto
+  tasks:
+    - name: Ping Google DNS
+      shell: ping -c 4 8.8.8.8
+      register: ping_result
+    - name: Mostrar a saída do comando ping
+      debug:
+        var: ping_result.stdout
